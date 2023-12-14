@@ -1,10 +1,8 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription, timer } from 'rxjs';
 import { GestioneAnagraficaService } from 'src/app/shared/services/gestione-anagrafica.service';
-import { FiltroAnagraficheComponent } from '../filtro-anagrafiche/filtro-anagrafiche.component';
 import { Filtro } from 'src/app/shared/interfaces/filtro';
-import { Anagrafica } from 'src/app/shared/models/anagrafica';
 
 @Component({
   selector: 'app-lista-anagrafiche',
@@ -57,7 +55,6 @@ export class ListaAnagraficheComponent implements OnInit,AfterViewInit {
     });
   }
 
-  ///// Assegna i dati recuparati alla var listaAnagrafiche
   loadlistaAnagrafiche() {
     this.gestioneAnagrafica.getListaAnagrafiche().subscribe(data => {
       this.listaAnagrafiche = data;
@@ -66,12 +63,10 @@ export class ListaAnagraficheComponent implements OnInit,AfterViewInit {
     this.ordinaDati(this.campoOrdine);
   }
 
-  ///// Naviga alla pagina dettagli della persona specifica /////
   navigaDettagliAnagrafica(id: number) {
     this.router.navigate(['anagrafica', id]);
   }
 
-  ///// Elimina persona dalla tabella uttilizzando gestioneAnagraficaService ///// 
   eliminaAnagrafica(id: number) {
     this.gestioneAnagrafica.deleteAnagrafica(id).subscribe(
       () => {
@@ -87,7 +82,6 @@ export class ListaAnagraficheComponent implements OnInit,AfterViewInit {
     );
   }
 
-  ///// INIZIO evidenza la riga della tabella della persona modificata ////
   isAnagraficaModificata(anagraficaId: number): boolean {
     return this.anagraficaModificataId === anagraficaId;
   }
@@ -115,10 +109,7 @@ export class ListaAnagraficheComponent implements OnInit,AfterViewInit {
       this.evidenzaTimeout = undefined;
     }
   }
-  ///// FINE evidenza la riga della tabella della persona modificata ////
 
-
-  ///// ordina i dati in base al campo e l'ordine (asc o desc)
   ordinaDati(campo: string) {
     if (campo === this.campoOrdine) {
       this.ordine = this.ordine === 'asc' ? 'desc' : 'asc';
@@ -149,15 +140,12 @@ export class ListaAnagraficheComponent implements OnInit,AfterViewInit {
     });
   }
   
-
-  ///// filtra i dati in base al campo e il valore
   onfiltroApplicato(filtri: Filtro[]) {
     this.mostraAnagraficheFiltrate = true;
   
     this.anagraficheFiltrate = this.listaAnagrafiche.filter(persona =>
       filtri.every(({ campo, valore }) => {
         if (campo === "nome") {
-          // Se il campo è "nome", usa some invece di every
           return filtri
             .filter(f => f.campo === "nome")
             .some(f => {
@@ -165,7 +153,6 @@ export class ListaAnagraficheComponent implements OnInit,AfterViewInit {
               return campoValue && (campoValue === f.valore.toLowerCase() || campoValue.startsWith(f.valore.toLowerCase()));
             });
         } else {
-          // Altrimenti, continua con la logica originale
           const campoValue = persona[campo]?.toLowerCase();
           if (valore === "") {
             return campoValue === null || campoValue === undefined;
@@ -176,7 +163,6 @@ export class ListaAnagraficheComponent implements OnInit,AfterViewInit {
     );
   }
   
-
   getListaAttiva(){
     if(this.mostraAnagraficheFiltrate){
       return this.anagraficheFiltrate;

@@ -4,8 +4,6 @@
         <h3>Dettagli {{anagrafica.nome}} {{anagrafica.cognome}}</h3>
         <div class="form-container">
             <form class="form" [formGroup]="anagraficaForm" (ngSubmit)="onSubmit()">
-                
-                <!-- Nome Form Group -->
                 <div class="form-group">
                     <label for="nome">Nome:</label>  
                     <input #inputField type="text" id="nome" name="nome" formControlName="nome" [readOnly]="isReadOnly" class="form-control">
@@ -16,7 +14,6 @@
                         <small>campo obbligatorio</small>
                       </span>
                 </div>
-
                 <div class="form-group">
                     <label for="cognome">Cognome:</label>
                     <input type="text" id="cognome" name="cognome" formControlName="cognome" [readOnly]="isReadOnly" class="form-control">
@@ -27,8 +24,6 @@
                         <small>campo obbligatorio</small>
                     </span>
                 </div>
-
-                <!-- Email Form Group -->
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="text" id="email" name="email" formControlName="email" [readOnly]="isReadOnly" class="form-control">
@@ -37,26 +32,18 @@
                         <small *ngIf="email?.errors?.['required'] && (email?.touched || formSubmited)">campo obbligatorio</small>
                     </span>
                 </div>
-
-                <!-- Indirizzo Form Group -->
                 <div class="form-group">
                 <label for="indirizzo">Indirizzo:</label>
                 <input *ngIf="anagrafica.comune !== null" type="text" id="indirizzo" name="indirizzo" formControlName="indirizzo" [readOnly]="isReadOnly" class="form-control">
                 </div>
-
-                <!-- Località Form Group -->
                 <div class="form-group">
                 <label for="localita">Località:</label>
                 <input type="text" id="localita" name="localita" formControlName="localita" [readOnly]="isReadOnly" class="form-control">
                 </div>
-
-                <!-- Comune Form Group -->
                 <div class="form-group">
                 <label for="comune">Comune:</label>
                 <input type="text" id="comune" name="comune" formControlName="comune" [readOnly]="isReadOnly" class="form-control">
                 </div>
-
-                <!-- Provincia Form Group -->
                 <div class="form-group">
                     <label for="provincia">Provincia:</label>
                     <input *ngIf="isReadOnly" type="text" id="provincia" name="provincia" formControlName="provincia" [readOnly]="isReadOnly" class="form-control">
@@ -171,8 +158,6 @@
                         <option value="VT">Viterbo</option>
                     </select>
                 </div>
-
-                <!-- Note Form Group -->
                 <div class="form-group">
                 <label for="note">Note:</label>
                 <textarea id="note" name="note" formControlName="note" [readOnly]="isReadOnly" class="form-control"> </textarea>

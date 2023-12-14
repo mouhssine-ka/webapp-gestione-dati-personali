@@ -8,7 +8,7 @@
       "localita": null,
       "comune": "roma",
       "provincia": "RM",
-      "note": "Questo nome e cognome viene utilizzato per fare esempi",
+      "note": "Questo nome e cognome viene utilizzato spesso per fare esempi",
       "id": 1
     },
     {
@@ -19,7 +19,7 @@
       "localita": null,
       "comune": "torino",
       "provincia": "TO",
-      "note": "Cliente interessato a sconti o promozioni in corso.",
+      "note": "Cliente interessato a sconti o promozioni in corso ",
       "id": 2
     },
     {

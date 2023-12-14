@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, FormGroupDirective, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Anagrafica } from 'src/app/shared/models/anagrafica';
 import { GestioneAnagraficaService } from 'src/app/shared/services/gestione-anagrafica.service';
@@ -28,7 +28,6 @@ export class DettagliAnagraficaComponent implements OnInit {
     private gestioneAnagrafica: GestioneAnagraficaService
   ) { }
 
-
   ngOnInit(): void {
     this.loadDettagliAnagrafica();
 
@@ -45,7 +44,6 @@ export class DettagliAnagraficaComponent implements OnInit {
 
   }
 
-  // Metodo chiamato quando si effettua la modifica
   onModificaCompletata(anagraficaId: number) {
     this.router.navigate(['/lista-anagrafiche']);
   }
@@ -83,8 +81,6 @@ export class DettagliAnagraficaComponent implements OnInit {
   }
 
   modificaDati() {
-    console.log(this.anagrafica)
-
     this.isReadOnly = false;
 
     if (!this.isReadOnly) {

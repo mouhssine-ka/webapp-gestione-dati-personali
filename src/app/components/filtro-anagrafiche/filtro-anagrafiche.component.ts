@@ -1,4 +1,3 @@
-import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Filtro } from 'src/app/shared/interfaces/filtro';
 
