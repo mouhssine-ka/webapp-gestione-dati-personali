@@ -1,0 +1,59 @@
+{
+  "Persone": [
+    {
+      "nome": "Mario",
+      "cognome": "rossi",
+      "email": "rossimario@gmail.com",
+      "indirizzo": "via neri 7",
+      "localita": null,
+      "comune": "roma",
+      "provincia": "RM",
+      "note": "Questo nome e cognome viene utilizzato per fare esempi",
+      "id": 1
+    },
+    {
+      "nome": "Marco",
+      "cognome": "Esposito",
+      "email": "marcoesposito@gmail.com",
+      "indirizzo": "via roma, 101",
+      "localita": null,
+      "comune": "torino",
+      "provincia": "TO",
+      "note": "Cliente interessato a sconti o promozioni in corso.",
+      "id": 2
+    },
+    {
+      "nome": "Sara",
+      "cognome": "Moretti",
+      "email": "sara@libero.com",
+      "indirizzo": "",
+      "localita": "",
+      "comune": null,
+      "provincia": null,
+      "note": null,
+      "id": 3
+    },
+    {
+      "nome": "alessandro",
+      "cognome": "zanetti",
+      "email": "zanettialessandro@hotmail.com",
+      "indirizzo": null,
+      "localita": "",
+      "comune": "Ancona",
+      "provincia": "AN",
+      "note": null,
+      "id": 5
+    },
+    {
+      "nome": "Zaiera",
+      "cognome": "bronti",
+      "email": "brontiza@gmail.com",
+      "indirizzo": "via verdi 502",
+      "localita": "ancona",
+      "comune": "bellaria",
+      "provincia": "RN",
+      "note": "Cliente interessato a sconti o promozioni in corso",
+      "id": 6
+    }
+  ]
+}

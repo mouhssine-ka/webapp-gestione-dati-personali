@@ -1,0 +1,26 @@
+#leftArrow{
+    font-size: 20px;
+}
+.readOnly{
+    background-color: #e9ecef;
+}
+input{
+    padding: 10px;
+
+}
+input:read-only{
+    border: none;
+}
+.form-container{
+    max-width: 400px;
+}
+@media (max-width: 768px) {
+    .container {
+        display: block !important;
+    }
+}
+.container-fluid {
+    justify-content: center;
+    text-align: center;
+  }
+  

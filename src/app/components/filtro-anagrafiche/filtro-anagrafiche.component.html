@@ -1,0 +1,64 @@
+<div class="row align-items-center">
+  <button
+    (click)="aggiungiFiltro()"
+    class="bi bi-funnel-fill btn border m-3"
+    [disabled]="filtri.length >= maxNumFiltri"
+    id="btn-aggiungi-filtro"
+  >
+    Aggiungi Filtro
+  </button>
+  <button
+    *ngIf="filtri.length > 0"
+    (click)="rimuoviFiltri()"
+    class="bi bi-funnel-fill btn btn-danger m-3"
+    id="btn-rimuovi-filtri"
+  >
+    Rimuovi filtri
+  </button>
+</div>
+<div class="container bg-gainsboro">
+  <div
+    *ngFor="let filtro of filtri"
+    class="row align-items-center opzioni-filtri mb-3 p-3"
+  >
+    <div class="col-md-3">
+      <select
+        [(ngModel)]="filtro.campo"
+        (change)="selezionaCampo(filtro)"
+        class="form-select"
+      >
+        <option value="" disabled selected>Scegli un campo</option>
+        <option value="nome">Nome</option>
+        <option value="cognome">Cognome</option>
+        <option value="email">Email</option>
+        <option value="comune">Comune</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <input
+        *ngIf="filtro.campoFiltroSelezionato"
+        [(ngModel)]="filtro.valore"
+        placeholder="Inserisci valore"
+        class="form-control"
+      />
+    </div>
+
+    <div class="azioni col-md-auto d-flex justify-content-between">
+      <button
+        *ngIf="filtro.campoFiltroSelezionato"
+        (click)="applicaFiltro(filtro)"
+        class="btn btn-secondary custom-btn"
+      >
+        Applica
+      </button>
+      <button
+        *ngIf="filtro.campoFiltroSelezionato"
+        (click)="rimuoviFiltro(filtro)"
+        class="btn btn-warning"
+      >
+        Rimuovi
+      </button>
+    </div>
+  </div>
+</div>

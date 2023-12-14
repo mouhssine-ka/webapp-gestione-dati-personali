@@ -1,0 +1,15 @@
+.btn-filter{
+    height: 45px;
+}
+#btn-aggiungi-filtro{
+    width: 190px;
+}
+#btn-rimuovi-filtri{
+    width: 190px;
+}
+.azioni{
+    width: 200px;
+}
+.container{
+    background-color: #8590bb;
+}

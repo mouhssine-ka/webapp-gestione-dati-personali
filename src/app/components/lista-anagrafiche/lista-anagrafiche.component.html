@@ -1,0 +1,47 @@
+
+<app-aggiungi-anagrafica></app-aggiungi-anagrafica>
+<app-filtro-anagrafiche (filtriDaApplicare)="onfiltroApplicato($event)"></app-filtro-anagrafiche>
+
+<div class="table-responsive ">
+  <table class="table table-responsive col-sm-12 table-striped text-break">
+    <thead>
+      <tr>
+        <th scope="col" (click)="ordinaDati('nome')" (click)="mostraFrecceOrdine = false">
+          Nome
+          <span *ngIf="(campoOrdine == 'nome' && ordine == 'asc') || mostraFrecceOrdine">&uarr;</span>
+          <span *ngIf="(campoOrdine == 'nome' && ordine == 'desc') || mostraFrecceOrdine">&darr;</span>
+        </th>
+        <th scope="col" (click)="ordinaDati('cognome')" (click)="mostraFrecceOrdine= false">Cognome
+          <span *ngIf="campoOrdine == 'cognome' && ordine == 'asc' || mostraFrecceOrdine">&uarr;</span>
+          <span *ngIf="campoOrdine == 'cognome' && ordine == 'desc' || mostraFrecceOrdine">&darr;</span>
+        </th>
+        <th scope="col" (click)="ordinaDati('comune')" (click)="mostraFrecceOrdine = false">Comune
+          <span *ngIf="campoOrdine == 'comune' && ordine == 'asc' || mostraFrecceOrdine">&uarr;</span>
+          <span *ngIf="campoOrdine == 'comune' && ordine == 'desc' || mostraFrecceOrdine">&darr;</span>
+        </th>
+        <th scope="col" (click)="ordinaDati('email')" (click)="mostraFrecceOrdine = false">Email
+          <span *ngIf="campoOrdine == 'email' && ordine == 'asc' || mostraFrecceOrdine">&uarr;</span>
+          <span *ngIf="campoOrdine == 'email' && ordine == 'desc' || mostraFrecceOrdine">&darr;</span>
+        </th>
+        <th scope="col" >Modifica/Elimina</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let persona of getListaAttiva(); let i = index" [class.persona-modificata]="isAnagraficaModificata(persona.id)" [class.persona-aggiunta]="isAnagraficaAggiunta(persona.id)" #personaRow>
+          <td class="text-capitalize">{{ persona.nome }}</td>
+          <td class="text-capitalize">{{ persona.cognome }}</td>
+          <td class="text-capitalize">{{ persona.comune }}</td>
+          <td id="email">{{ persona.email }}</td>
+          <td>
+            <div class="d-flex">
+              <button class="bi bi-pencil-square btn btn-primary text-white mx-1" id="dettagli" (click)="navigaDettagliAnagrafica(persona.id)"></button>
+              <button class="bi bi-trash btn btn-danger text-white mx-1" id="elimina" (click)="eliminaAnagrafica(persona.id)"></button>
+            </div>
+
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+

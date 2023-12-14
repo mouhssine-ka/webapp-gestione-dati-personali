@@ -1,0 +1,28 @@
+.container-fluid {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  height: 0;
+  overflow: hidden;
+  max-width: 500px;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .form-container {
+    max-width: 100%;
+  }
+}
+
+#form-container {
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  overflow: hidden;
+}
+#form-container.show {
+  height: 100%;
+  opacity: 1;
+}

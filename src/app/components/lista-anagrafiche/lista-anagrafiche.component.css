@@ -1,0 +1,20 @@
+table td{
+    min-width: 110px;
+}
+#email{
+    min-width: 200px;
+}
+.persona-modificata td{
+    background-color:#aaffaa;
+}
+.persona-aggiunta td{
+    background-color:#aaffaa;
+}
+
+table th{
+    cursor: pointer;
+}
+
+table th:hover{
+    background-color: #f8f7f7;
+}
